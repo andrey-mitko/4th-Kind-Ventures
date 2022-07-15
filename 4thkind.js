@@ -19,12 +19,16 @@ menuToggle.addEventListener("click", () => {
 
 darkModeToggle.addEventListener("click", () => {
     bodyTag.classList.toggle("dark-mode");
-    darkModeToggleText.innerHTML = bodyTag.classList.contains("dark-mode") ? "Light mode" : "Dark mode";
+    const isDarkMode =  bodyTag.classList.contains("dark-mode");
+    darkModeToggleText.innerHTML = isDarkMode ? "Light mode" : "Dark mode";
+    gsap.to("g.toggle", {x: isDarkMode ? 43 : 19})
 });
 
 const updateDarkMode = () => {
-    darkModeToggleText.innerHTML = mqDark.matches ? "Light mode" : "Dark mode"
-    mqDark.matches ? bodyTag.classList.add("dark-mode") : bodyTag.classList.remove("dark-mode");
+    const isDarkMode =  mqDark.matches;
+    darkModeToggleText.innerHTML = isDarkMode ? "Light mode" : "Dark mode"
+    isDarkMode ? bodyTag.classList.add("dark-mode") : bodyTag.classList.remove("dark-mode");
+    gsap.to("g.toggle", {x: isDarkMode ? 43 : 19})
 };
 
 updateDarkMode();   

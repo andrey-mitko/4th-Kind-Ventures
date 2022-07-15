@@ -105,3 +105,11 @@ nav div.internal {
 svg {
   vertical-align: middle;
 }
+
+a.dark-mode-toggle g.toggle circle {
+  transition: transform 0.5s;
+}
+
+a.dark-mode-toggle:hover g.toggle circle {
+  transform: scale(1.75);
+}
