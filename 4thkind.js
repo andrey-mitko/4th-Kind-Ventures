@@ -8,7 +8,12 @@ const bodyTag = document.querySelector("body");
 
 menuToggle.addEventListener("click", () => {
     bodyTag.classList.toggle("nav-open");
-    menuToggleText.innerHTML = bodyTag.classList.contains("nav-open") ? "Close" : "Menu";
+    const isNavOpen = bodyTag.classList.contains("nav-open");
+    menuToggleText.innerHTML = isNavOpen ? "Close" : "Menu";
+
+    gsap.to(".burger-top", {rotation: isNavOpen ? 45 : 0, transformOrigin: "50% 50%", y: isNavOpen ? 8 : 0})
+    gsap.to(".burger-bottom", {rotation:  isNavOpen ? -45 : 0, transformOrigin: "50% 50%", y: isNavOpen ? -8 : 0})
+    gsap.to(".burger-mid", {width:  isNavOpen ? 0 : 28})
 })
 
 
