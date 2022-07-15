@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap");
+
+:root {
+  --main-color: #ffffff;
+  --text-color: #000000;
+  --highlight-color: #2727e6;
+}
+
+body {
+  font-family: Inter;
+  font-size: 24px;
+  line-height: 40px;
+
+  background-color: var(--main-color);
+  background-image: url("../assets/grid.svg");
+
+  background-position: center center;
+  color: var(--text-color);
+}
+
+h1 {
+  position: fixed;
+  top: 32px;
+  left: 32px;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--highlight-color);
+}
+
+a.dark-mode-toggle {
+  position: fixed;
+  bottom: 32px;
+  left: 32px;
+}
+
+a.menu-toggle {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-color: #000000;
+    --text-color: #ffffff;
+    --highlight-color: #ff4141;
+  }
+
+  body {
+    background-color: #000;
+    color: #fff;
+  }
+
+  a {
+    color: #fff;
+  }
+}
