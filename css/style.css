@@ -83,11 +83,32 @@ nav {
   justify-content: space-between;
 
   transform: translate(100%, 0);
-  transition: transform 1s;
+  transition: transform 0.5s 0s;
+}
+
+nav.fake-mid {
+  background-color: var(--highlight-color);
+  transition-delay: 0.1s;
+}
+
+nav.fake-back {
+  background-color: var(--text-color);
+  transition-delay: 0.2s;
 }
 
 body.nav-open nav {
   transform: translate(0, 0);
+  transition-delay: 0.2s;
+}
+
+body.nav-open nav.fake-mid {
+  background-color: var(--highlight-color);
+  transition-delay: 0.1s;
+}
+
+body.nav-open nav.fake-back {
+  background-color: var(--text-color);
+  transition-delay: 0s;
 }
 
 nav div {
