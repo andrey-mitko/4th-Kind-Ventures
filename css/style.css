@@ -96,15 +96,6 @@ nav {
   transition: transform 0.5s 0s;
 }
 
-.nav-inner {
-  width: 100%;
-  height: 100%;
-  padding: 48px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 nav.fake-mid {
   background-color: var(--highlight-color);
   transition-delay: 0.1s;
@@ -177,4 +168,13 @@ svg.spiral rect {
 
 svg.spiral rect:hover {
   fill-opacity: 0.5;
+}
+
+.nav-inner {
+  width: 100%;
+  height: 100%;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
