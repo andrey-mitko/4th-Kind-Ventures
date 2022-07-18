@@ -5,6 +5,7 @@ const menuToggle = document.querySelector("a.menu-toggle")
 const menuToggleText = menuToggle.querySelector("span")
 
 const bodyTag = document.querySelector("body");
+let isDarkmodeTransitioning = false;
 
 menuToggle.addEventListener("click", () => {
     bodyTag.classList.toggle("nav-open");
@@ -18,10 +19,38 @@ menuToggle.addEventListener("click", () => {
 
 
 darkModeToggle.addEventListener("click", () => {
-    bodyTag.classList.toggle("dark-mode");
+   if (!isDarkmodeTransitioning) {
+    isDarkmodeTransitioning = true;
+
+
     const isDarkMode =  bodyTag.classList.contains("dark-mode");
     darkModeToggleText.innerHTML = isDarkMode ? "Light mode" : "Dark mode";
-    gsap.to("g.toggle", {x: isDarkMode ? 43 : 19})
+    gsap.to("g.toggle", {x: isDarkMode ? 19 : 43})
+
+    const timeline = gsap.timeline()
+    timeline
+        .set("div.wipe", {
+            height: "0%",
+            top: "0%",
+        })
+        .to("div.wipe", {
+            height: "100%",
+            duration: 2,
+        })
+        .add(() => {
+            bodyTag.classList.toggle("dark-mode");
+        })
+        .to("div.wipe", {
+            height: "0%",
+            top: "100%",
+            duration: 2,
+        })
+        .add(() => {
+            isDarkmodeTransitioning = false;
+        })
+   }
+    
+
 });
 
 const updateDarkMode = () => {
