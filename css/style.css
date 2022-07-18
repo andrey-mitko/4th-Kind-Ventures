@@ -18,15 +18,23 @@ body {
   line-height: 40px;
 
   background-color: var(--main-color);
-  background-image: url("../assets/grid.svg");
 
-  background-position: center center;
   color: var(--text-color);
+}
 
+section {
+  background-image: url("../assets/grid.svg");
+  background-position: center center;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
+  transform: translate(0, 0);
+  transition: transform 0.5s;
+}
+
+body.nav-open section {
+  transform: translate(-100px, 0);
 }
 
 h1 {
