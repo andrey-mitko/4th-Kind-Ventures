@@ -22,6 +22,11 @@ body {
 
   background-position: center center;
   color: var(--text-color);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 h1 {
@@ -144,4 +149,18 @@ div.wipe {
   background-color: var(--highlight-color);
   z-index: 3;
   transition: background-color 0.0001s 2s;
+}
+
+svg.spiral {
+  border: 2px solid var(--highlight-color);
+}
+
+svg.spiral rect {
+  fill: var(--highlight-color);
+  fill-opacity: 0;
+  stroke: var(--highlight-color);
+}
+
+svg.spiral rect:hover {
+  fill-opacity: 0.5;
 }
